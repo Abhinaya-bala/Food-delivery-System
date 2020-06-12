@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-class SearchRestaurant extends Component {
+class Cart extends Component {
     constructor(props) {
         super(props)
 
@@ -25,4 +25,4 @@ class SearchRestaurant extends Component {
 
 }
 
-export default SearchRestaurant;
+export default Cart;

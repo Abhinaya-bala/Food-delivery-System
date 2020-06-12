@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 
-import './App.css';
 
 class OrderHistory extends Component {
     constructor(props) {
