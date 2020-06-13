@@ -18,7 +18,13 @@
         "rating": 4.6,
         "votes": 300,
         "reviews": 445,
-        "src": "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg"
+        "src": "https://upload.wikimedia.org/wikipedia/commons/6/62/Barbieri_-_ViaSophia25668.jpg",
+        "menu": [
+            {
+                "name": "Dosa",
+                "price": 20
+            }
+        ]
     },
     {
         "name": "The Marina",

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
+import { Link } from 'react-router-dom'
 
-import './App.css';
-
-class Cart extends Component {
+class MenuItem extends Component {
     constructor(props) {
         super(props)
 
@@ -13,11 +12,11 @@ class Cart extends Component {
 
 
     render() {
+        const { item } = this.props
         return (
             <div >
 
-
-
+                {item.name}
             </div>
 
         )
@@ -25,4 +24,4 @@ class Cart extends Component {
 
 }
 
-export default Cart;
+export default MenuItem;

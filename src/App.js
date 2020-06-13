@@ -3,14 +3,14 @@ import { HashRouter, Route } from 'react-router-dom';
 import { Provider } from "react-redux"; //default
 import { store } from "./Redux/store";
 
-import NavBar from "./Components/NavBar"
+import NavBar from "./Routes/NavBar"
 
 
 
 
 import AppProvider from './Utils/AppProvider'
 import './App.css';
-import MainWrapper from './Components/MainWrapper';
+import MainWrapper from './Routes/MainWrapper';
 
 function App() {
 

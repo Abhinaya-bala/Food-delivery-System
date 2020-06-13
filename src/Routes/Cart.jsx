@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-class Menu extends Component {
+class Cart extends Component {
     constructor(props) {
         super(props)
 
@@ -15,8 +15,8 @@ class Menu extends Component {
         return (
             <div >
 
-                menu
-                
+
+
             </div>
 
         )
@@ -24,4 +24,4 @@ class Menu extends Component {
 
 }
 
-export default Menu;
+export default Cart;
