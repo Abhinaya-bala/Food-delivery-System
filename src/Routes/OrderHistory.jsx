@@ -1,44 +1,52 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
 class OrderHistory extends Component {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props);
+  }
 
-
-    }
-
-
-
-    render() {
-        const { orders } = this.props
-        return (
-            <div >
-
-                <ul className="list-group">
-                    {orders.map((item) => (
-                        <li className="list-group-item ">
-                            <span className="mx-2">{item.id}</span>
-                            <span className="mx-2">{item.totalPrice}</span>
-
-                        </li>
-                    ))}
-                </ul>
-
-            </div>
-
-        )
-    }
-
+  render() {
+    const { orders } = this.props;
+    return (
+      <div className="col-8 mx-auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Order id</th>
+              <th scope="col">Total price</th>
+              <th scope="col">Items</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((item) => (
+              <tr>
+                <th scope="row">1</th>
+                <td>#{item.id}</td>
+                <td>{item.totalPrice}</td>
+                <td>
+                  {item.cart.map((food) => (
+                    <div>
+                      <span className="mx-2">{food.name}</span>
+                      <span className="mx-2">{food.price}</span>
+                    </div>
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-    orders: state.orders,
+  orders: state.orders,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderHistory);
-

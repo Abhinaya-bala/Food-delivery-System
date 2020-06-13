@@ -17,7 +17,8 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className="mx-5 my-5">
+      <div className="mx-5 my-5 col-6">
+        <h1>Menu</h1>
         <ul class="list-group">
           {this.state.restaurant.menu.map((item) => (
             <MenuItem key={item.id} item={item} />

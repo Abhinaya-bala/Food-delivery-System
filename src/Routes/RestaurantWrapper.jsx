@@ -9,12 +9,17 @@ class RestaurantWrapper extends Component {
   }
 
   render() {
-    const { restaurants } = this.props;
+    const { restaurants, searchText } = this.props;
     return (
       <div className="flex flex-wrap">
-        {restaurants.map((restaurant) => (
-          <RestaurantItem key={restaurant.id} restaurant={restaurant} />
-        ))}
+        {restaurants
+          .filter(
+            (restaurant) =>
+              restaurant.name.toLowerCase().indexOf(searchText) > -1
+          )
+          .map((restaurant) => (
+            <RestaurantItem key={restaurant.id} restaurant={restaurant} />
+          ))}
       </div>
     );
   }
@@ -22,6 +27,7 @@ class RestaurantWrapper extends Component {
 
 const mapStateToProps = (state) => ({
   restaurants: state.restaurants,
+  searchText: state.searchText,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

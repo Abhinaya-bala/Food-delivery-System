@@ -6,30 +6,45 @@ import { addToOrder } from "../Redux/action";
 class Cart extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   render() {
-    const { cart, addToOrder } = this.props;
-    const totalPrice = cart.reduce((acc, item) => acc + item.price, 0)
+    const { cart, addToOrder, history } = this.props;
+    const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
     return (
-      <div>
+      <div className="mx-5 my-5 col-6">
+        <h1>Cart</h1>
         <ul class="list-group">
           {cart.map((item) => (
-            <li class="list-group-item ">
-              <span>{item.name}</span>
-              <span>{item.price}</span>
+            <li
+              key={item.id}
+              class="list-group-item flex flex-row justify-content-between align-items-center my-2 "
+            >
+              <div>
+                <i className="fas fa-hamburger"></i>
+                <span className="mx-2">{item.name}</span>
+                <span className="mx-2">Rs.{item.price}</span>
+              </div>
             </li>
           ))}
         </ul>
         <div>
-          Total amount: {totalPrice}
+          <h1>Total amount: {totalPrice}</h1>
         </div>
-        <div>
+        <div className="mx-2">
           <button
             className="btn btn-primary"
-            onClick={() => addToOrder({ id: Date.now(), cart: cart, totalPrice: totalPrice })}
+            onClick={() => {
+              addToOrder({
+                id: Date.now(),
+                cart: cart,
+                totalPrice: totalPrice,
+              });
+              history.push("/OrderHistory");
+            }}
           >
-            Order
+            Proceed to checkout
           </button>
         </div>
       </div>

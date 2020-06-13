@@ -16,7 +16,7 @@ class RestaurantItem extends Component {
           <h5 className="card-title">{restaurant.name}</h5>
           <p className="card-text">{restaurant.cuisine.join(", ")}</p>
           <div className="card-list flex">
-            <ul className="flex">
+            <ul className="flex p-0">
               <li className="li">Upto {restaurant.deliveryTime} MINS</li>
               <li className="li">RS.{restaurant.costForTwo} FOR TWO</li>
               <li className="li">MinOrder {restaurant.minOrder}</li>
