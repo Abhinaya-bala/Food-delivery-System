@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchText: "" };
+    this.state = { searchText: "" }; // local state 
   }
 
   render() {
-    const { searchRestaurents, cart } = this.props;
+    const { searchRestaurents, cart } = this.props; // destructuring 
     return (
       <nav className="navbar navbar-light bg-light ">
         <div
@@ -81,11 +81,11 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart,
+  cart: state.cart, // only state data 
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  searchRestaurents: (payload) => dispatch(searchRestaurents(payload)),
+  searchRestaurents: (payload) => dispatch(searchRestaurents(payload)), // to trigger an action
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

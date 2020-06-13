@@ -17,7 +17,7 @@ function connect(mapStateToProps, mapDispatchToProps) {
                 return (
                     <WrapperComponent
                         {...mapStateToProps(store.getState())}
-                        {...mapDispatchToProps(store.dispatch)} //
+                        {...mapDispatchToProps(store.dispatch)}
                     />
                 );
             }

@@ -17,6 +17,7 @@ function App() {
   return (
     <HashRouter>
       <Provider store={store}>
+        {/*redux Store to Provider*/}
         <AppProvider store={store}>
 
           <NavBar />

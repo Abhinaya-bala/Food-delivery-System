@@ -3,6 +3,7 @@ import {
   ADD_TO_ORDER,
   LOGIN,
   SEARCH_RESTAURANTS,
+  UPDATE_FILTER,
 } from "./actionTypes";
 
 export const addToCart = (payload) => ({
@@ -24,5 +25,12 @@ export const searchRestaurents = (payload) => ({
   type: SEARCH_RESTAURANTS,
   payload: {
     searchText: payload,
+  },
+});
+
+export const updateFilter = (payload) => ({
+  type: UPDATE_FILTER,
+  payload: {
+    sortByRating: payload,
   },
 });

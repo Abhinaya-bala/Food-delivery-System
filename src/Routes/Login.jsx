@@ -11,19 +11,19 @@ class Login extends Component {
 
   handleInput = (event, key) => {
     let obj = {};
-    obj[key] = event.target.value;
+    obj[key] = event.target.value;// only value has to update
     this.setState(obj);
   };
   handleLogin = (event) => {
     console.log("am logging", this.props);
     event.preventDefault();
     this.props.login(this.state);
-    this.props.history.push("/cart");
+    this.props.history.push("/cart"); // redirect
   };
 
   render() {
     return (
-      <div className="col-6 mx-auto">
+      <div className="col-6 mx-auto my-5">
         <form
           onSubmit={(event) => {
             this.handleLogin(event);
