@@ -1,27 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { Link } from 'react-router-dom'
+import { addToCart } from "../Redux/action";
 
 class MenuItem extends Component {
     constructor(props) {
-        super(props)
-
-
+        super(props);
     }
-
-
 
     render() {
-        const { item } = this.props
+        const { item, addToCart } = this.props;
         return (
-            <div >
-
-                {item.name}
-            </div>
-
-        )
+            <li class="list-group-item flex ">
+                <span className="mx-2">{item.name}</span>
+                <span className="mx-2">Rs.{item.price}</span>
+                <span className="mx-2">
+                    <button
+                        className="btn btn-primary"
+                        onClick={() =>
+                            addToCart({ id: item.id, price: item.price, name: item.name })
+                        }
+                    >
+                        Add to Cart
+          </button>
+                </span>
+            </li>
+        );
     }
-
 }
 
-export default MenuItem;
+const mapStateToProps = (state) => ({
+    restaurants: state.restaurants,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    addToCart: (payload) => dispatch(addToCart(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuItem);

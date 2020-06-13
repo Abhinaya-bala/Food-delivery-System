@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
+
+import { connect } from "react-redux";
 import RestaurantWrapper from "./RestaurantWrapper"
 import Menu from "./Menu"
 import OrderDetails from './OrderDetails';
 import OrderHistory from './OrderHistory';
 import Cart from './Cart';
-
+import Login from './Login'
 
 class MainWrapper extends Component {
     constructor(props) {
@@ -18,10 +20,8 @@ class MainWrapper extends Component {
 
 
     render() {
+        const { isAuthenticated } = this.props
         return (
-
-
-
             <Switch>
                 <Route path="/" exact component={RestaurantWrapper} />
                 <Route
@@ -41,10 +41,26 @@ class MainWrapper extends Component {
                     component={OrderHistory}
                 />
 
+
+
+                <Route
+                    path="/cart"
+                    render={(props) => {
+                        return isAuthenticated ? (
+                            <Cart {...props} />
+                        ) : (
+                                <Redirect
+                                    to={{ pathname: "/login", state: { from: props.location } }}
+                                />
+                            );
+                    }}
+                />
+                } />
+
                 <Route
 
-                    path="/Cart"
-                    component={Cart}
+                    path="/login"
+                    component={Login}
                 />
 
             </Switch>
@@ -55,4 +71,16 @@ class MainWrapper extends Component {
 
 }
 
-export default MainWrapper;
+
+
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.isAuthenticated
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainWrapper);
+
+
