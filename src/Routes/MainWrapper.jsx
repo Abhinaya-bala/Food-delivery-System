@@ -8,6 +8,7 @@ import OrderDetails from "./OrderDetails";
 import OrderHistory from "./OrderHistory";
 import Cart from "./Cart";
 import Login from "./Login";
+import Admin from "./Admin"
 
 class MainWrapper extends Component {
   constructor(props) {
@@ -27,10 +28,10 @@ class MainWrapper extends Component {
             return isAuthenticated ? (
               <OrderHistory {...props} />
             ) : (
-              <Redirect
-                to={{ pathname: "/login", state: { from: props.location } }}
-              />
-            );
+                <Redirect
+                  to={{ pathname: "/login", state: { from: props.location } }}
+                />
+              );
           }}
         />
         } />
@@ -40,14 +41,17 @@ class MainWrapper extends Component {
             return isAuthenticated ? (
               <Cart {...props} />
             ) : (
-              <Redirect
-                to={{ pathname: "/login", state: { from: props.location } }}
-              />
-            );
+                <Redirect
+                  to={{ pathname: "/login", state: { from: props.location } }}
+                />
+              );
           }}
         />
         } />
         <Route path="/login" component={Login} />
+
+        <Route path="/admin" component={Admin} />
+
       </Switch>
     );
   }

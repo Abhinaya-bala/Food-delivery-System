@@ -19,28 +19,28 @@ class MenuItem extends Component {
           <i className="fas fa-hamburger"></i>
           <span className="mx-2">{item.name}</span>
           <span className="mx-2">Rs.{item.price}</span>
-          {this.state.isItemAdded ? <p>This item added to cart</p> : ""}
+          {this.state.isItemAdded ? <p className="my-1">This item added to cart</p> : ""}
         </div>
         <div>
           {this.state.isItemAdded ? (
             ""
           ) : (
-            <span className="mx-2">
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  addToCart({
-                    id: item.id,
-                    price: item.price,
-                    name: item.name,
-                  });
-                  this.setState({ isItemAdded: true });
-                }}
-              >
-                Add to Cart
+              <span className="mx-2">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    addToCart({
+                      id: item.id,
+                      price: item.price,
+                      name: item.name,
+                    });
+                    this.setState({ isItemAdded: true });
+                  }}
+                >
+                  Add to Cart
               </button>
-            </span>
-          )}
+              </span>
+            )}
         </div>
       </li>
     );

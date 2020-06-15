@@ -9,20 +9,22 @@ class RestaurantWrapper extends Component {
   }
 
   render() {
-    const { restaurants, searchText, sortByRating } = this.props;
+    const { restaurants, searchText, filterByRating } = this.props;
+    console.log(filterByRating)
     return (
       <div>
-        <div className="col-3 mt-2"><Filter /></div>
+        <div className="col-1 text-right mt-2"><Filter /></div>
         <div className="flex flex-wrap">
           {restaurants
             .filter(
               (restaurant) =>
                 restaurant.name.toLowerCase().indexOf(searchText) > -1
-            ).sort((restaurant1, restaurant2) => {
-              if (sortByRating === "asc") {
-                return restaurant1.rating - restaurant2.rating
+            ).filter((restaurant) => {
+              if (filterByRating === "all") {
+                return true
               }
-              return restaurant2.rating - restaurant1.rating
+              return restaurant.rating >= filterByRating
+
             })
             .map((restaurant) => (
               <RestaurantItem key={restaurant.id} restaurant={restaurant} />
@@ -37,7 +39,7 @@ class RestaurantWrapper extends Component {
 const mapStateToProps = (state) => ({
   restaurants: state.restaurants,
   searchText: state.searchText,
-  sortByRating: state.sortByRating
+  filterByRating: state.filterByRating
 });
 
 const mapDispatchToProps = (dispatch) => ({});

@@ -11,13 +11,16 @@ class Filter extends Component {
 
     render() {
 
-        const { updateFilter, sortByRating } = this.props;
+        const { updateFilter, filterByRating } = this.props;
         return (
             <div className="d-flex">
-                <label className="mx-2 text-muted"> Rating:</label>
-                <select className="custom-select" value={sortByRating} onChange={(event) => updateFilter(event.target.value)}>
-                    <option value="dsc">high to low</option>
-                    <option value="asc">Low to high</option>
+                <label className="mx-2 text-muted"> <i class="fas fa-star-half-alt text-success"></i> </label>
+                <select className="custom-select" value={filterByRating} onChange={(event) => updateFilter({ filterByRating: event.target.value })}>
+                    <option value="all">all</option>
+                    <option value="1">1 Star</option>
+                    <option value="2">2 Star</option>
+                    <option value="3">3 Star</option>
+                    <option value="4">4 Star</option>
                 </select>
             </div >
 
@@ -27,7 +30,7 @@ class Filter extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    sortByRating: state.sortByRating
+    filterByRating: state.filterByRating
 });
 
 const mapDispatchToProps = (dispatch) => ({

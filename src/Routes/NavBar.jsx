@@ -27,24 +27,36 @@ class NavBar extends Component {
           <ul className="navbar-nav ml-auto flex flex-row">
             <li className="nav-item m-3 text-uppercase">
               <Link className="text-muted" to="/">
-                Restaurants
+                <span className="mx-2">Restaurants</span>
               </Link>
             </li>
 
             <li className="nav-item m-3 text-uppercase">
               <Link className="text-muted" to="/OrderHistory">
-                Orders
+                <span className="mx-2">Orders</span>
+
               </Link>
             </li>
 
+
             <li className="nav-item m-3 text-uppercase">
-              <Link className="text-muted" to="/cart">
-                Cart<span className="mx-2">({cart.length})</span>
+              <Link className="text-success" to="/cart">
+                <i className="fas fa-cart-plus text-danger"></i>
+                <span className="mx-2">({cart.length})</span>
               </Link>
             </li>
             <li className="nav-item m-3 text-uppercase">
               <Link className="text-muted" to="/login">
-                Login
+                <i class="fas fa-user-circle text-info"></i>
+                <span className="mx-2">Login</span>
+
+              </Link>
+            </li>
+            <li className="nav-item m-3 text-uppercase">
+              <Link className="text-muted" to="/admin">
+                <i class="fas fa-user-circle text-success"></i>
+                <span className="mx-2">Admin</span>
+
               </Link>
             </li>
           </ul>

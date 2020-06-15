@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addToOrder } from "../Redux/action";
+import { addToOrder, removeFromCart } from "../Redux/action";
 
 class Cart extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Cart extends Component {
   }
 
   render() {
-    const { cart, addToOrder, history } = this.props;
+    const { cart, addToOrder, history, removeFromCart } = this.props;
     const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
     return (
       <div className="mx-5 my-5 col-6">
@@ -25,6 +25,7 @@ class Cart extends Component {
                 <i className="fas fa-hamburger"></i>
                 <span className="mx-2">{item.name}</span>
                 <span className="mx-2">Rs.{item.price}</span>
+                <button onClick={() => removeFromCart(item.id)}>Remove</button>
               </div>
             </li>
           ))}
@@ -58,6 +59,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addToOrder: (payload) => dispatch(addToOrder(payload)),
+  removeFromCart: (payload) => dispatch(removeFromCart(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

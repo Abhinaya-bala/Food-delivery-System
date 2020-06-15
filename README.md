@@ -5,6 +5,22 @@ This "Online food ordering" is a process of food delivery to people need order f
  
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Approach
+
+I have tried to recreate Swiggy Food Delivery App
+
+I broke entire App into small components
+
+I tried  to complete one positive cycle at a time.
+
+I divide Components into User Side and Admin Side ,in User side  further divided routes like Restaurants, order details ,menu details,cart,checkout and login.
+in Admin side added functionalities like adding new restaurant and menu 
+
+I am managing the task and updating the status with a trello board 
+trello board link:
+https://trello.com/b/q03ITq33/food-delivery-system
+
+
 
 ## Used Library:
  1.BootStrap -This appication was designed used bootstrap framework 
