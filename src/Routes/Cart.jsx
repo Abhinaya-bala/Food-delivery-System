@@ -25,7 +25,12 @@ class Cart extends Component {
                 <i className="fas fa-hamburger"></i>
                 <span className="mx-2">{item.name}</span>
                 <span className="mx-2">Rs.{item.price}</span>
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+              <div>
+                <span className="mx-2">
+                  <button className="btn btn-primary" onClick={() => removeFromCart(item.id)}>Remove</button>
+                </span>
+
               </div>
             </li>
           ))}

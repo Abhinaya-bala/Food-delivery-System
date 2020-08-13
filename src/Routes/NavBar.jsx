@@ -52,13 +52,13 @@ class NavBar extends Component {
 
               </Link>
             </li>
-            <li className="nav-item m-3 text-uppercase">
+            {/* <li className="nav-item m-3 text-uppercase">
               <Link className="text-muted" to="/admin">
                 <i class="fas fa-user-circle text-success"></i>
                 <span className="mx-2">Admin</span>
 
               </Link>
-            </li>
+            </li> */}
           </ul>
 
           <form
